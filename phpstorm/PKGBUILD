@@ -1,11 +1,12 @@
 # Maintainer: Eduard Kracmar <edke.kraken[at]gmail[dot]com>
 # Contributor: D. Can Celasun <dcelasun[at]gmail[dot]com>
 # Contributor: Slava Volkov <sv99sv[at]gmail[dot]com>
+# Contributor: Ryad El-Dajani <ryad.eldajani[at]gmail[dot]com>
 
 pkgname=phpstorm
 _pkgname=PhpStorm  # Directory name in the tar file
-pkgver=6.0.2
-pkgbuild=129.487
+pkgver=6.0.3
+pkgbuild=129.814
 pkgrel=1
 pkgdesc="Lightweight and Smart PHP IDE. 30-day free trial."
 arch=('i686' 'x86_64')
@@ -14,7 +15,7 @@ url="http://www.jetbrains.com/phpstorm/"
 license=('custom')
 depends=('java-runtime>=6')
 source=(http://download-ln.jetbrains.com/webide/PhpStorm-${pkgver}.tar.gz)
-md5sums=('20edbdb3f2fb1ae850567d9b9776153b')
+md5sums=('0cd9e43f535052d52c58e695912b9445')
 
 package() {
   cd ${srcdir}
@@ -48,7 +49,6 @@ EOF
   mkdir -p ${pkgdir}/usr/share/applications/ || return 1
   mkdir -p ${pkgdir}/usr/share/pixmaps/ || return 1
   mkdir -p ${pkgdir}/usr/share/licenses/${pkgname}/ || return 1
-
   install -m 644 ${srcdir}/phpstorm.desktop ${pkgdir}/usr/share/applications/
   install -m 644 ${pkgdir}/opt/${pkgname}/bin/webide.png ${pkgdir}/usr/share/pixmaps/phpstorm.png
   install -m 644 ${srcdir}/${_pkgname}-${pkgbuild}/license/${_pkgname}_license.txt ${pkgdir}/usr/share/licenses/${pkgname}/${_pkgname}_license.txt
